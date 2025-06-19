@@ -1,0 +1,154 @@
+/* Container Styling */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* Background Animation */
+.auth-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(135deg, #00c9ff, #92fe9d);
+  background-size: 400% 400%;
+  animation: backgroundWave 15s ease infinite;
+  z-index: -1;
+}
+
+@keyframes backgroundWave {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Title Animation */
+.main-title {
+  position: absolute;
+  top: 30px;
+  font-size: 40px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #00c9ff, #92fe9d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeSlideIn 1s ease-out forwards;
+  text-align: center;
+}
+
+/* Login Card */
+.auth-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: zoomFadeIn 0.8s ease-in-out 0.3s forwards;
+}
+
+/* Form Elements */
+.auth-card h2 {
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-card input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.auth-card button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.auth-card button:hover {
+  background-color: #357ac9;
+}
+
+.auth-card button:active {
+  transform: scale(0.96);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.auth-card p {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.auth-card span {
+  color: #4a90e2;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* Button Disabled */
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid #fff;
+  border-top: 3px solid #357ac9;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animations */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform:scale(1);
+}
+}

@@ -1,0 +1,391 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Inter', "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* === Modular Card Section for Layout === */
+.section-card {
+  background: rgba(255,255,255,0.88);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
+  padding: 2.2rem 2rem 1.6rem 2rem;
+  margin: 2.2rem 0;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+body[data-theme="dark"] .section-card,
+.dashboard-bg.dark .section-card {
+  background: rgba(34,39,47,0.90);
+  box-shadow: 0 2px 12px rgba(32,201,151,0.10);
+}
+
+/* === Heading Hierarchy and Spacing === */
+.section-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1976d2;
+  margin-bottom: 1.1rem;
+  letter-spacing: 1.2px;
+}
+body[data-theme="dark"] .section-title,
+.dashboard-bg.dark .section-title {
+  color: #20c997;
+}
+
+.dashboard-title,
+.center-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 0.7rem;
+  margin-top: 0;
+  line-height: 1.1;
+  text-align: center;
+  width: 100%;
+  background: linear-gradient(90deg, #1976d2 0%, #20c997 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.dashboard-bg.dark .dashboard-title,
+.dashboard-bg.dark .center-title {
+  background: linear-gradient(90deg, #20c997 0%, #1976d2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* === Increased Section Spacing === */
+.dashboard {
+  padding: 20px;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  background: transparent;
+  margin-bottom: 2.2rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* === Original Styles Below (unchanged) === */
+
+.dashboard-bg {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #d6eaff 0%, #1976d2 60%, #20c997 100%);
+  padding: 0;
+  transition: background 0.4s;
+}
+.dashboard-bg.light {
+  background: linear-gradient(120deg, #d6eaff 0%, #1976d2 60%, #20c997 100%);
+}
+.dashboard-bg.dark {
+  background: linear-gradient(120deg, #23272f 0%, #121212 60%, #20c997 100%);
+}
+
+.theme-toggle,
+.logout-btn {
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #1976d2 0%, #20c997 100%);
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(32,201,151,0.10);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.theme-toggle:hover,
+.logout-btn:hover {
+  background: linear-gradient(90deg, #20c997 0%, #1976d2 100%);
+  box-shadow: 0 6px 20px rgba(25,118,210,0.14);
+}
+
+.storage-widget {
+  margin: 16px 0 8px 0;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.7);
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: #222;
+  display: inline-block;
+  box-shadow: 0 2px 8px rgba(32,201,151,0.07);
+}
+.dashboard-bg.dark .storage-widget {
+  background: rgba(34,39,47,0.90);
+  color: #f1f1f1;
+}
+
+.upload-section {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 48px;
+  justify-content: center;
+  align-items: flex-start;
+  background: linear-gradient(110deg, #1976d2 0%, #20c997 100%);
+  border-radius: 22px;
+  box-shadow: 0 8px 36px rgba(32,201,151,0.12), 0 2px 8px rgba(25,118,210,0.10);
+  padding: 2.2em 2em 2em 2em;
+  min-height: 180px;
+  position: relative;
+}
+.dashboard-bg.dark .upload-section {
+  background: linear-gradient(110deg, #23272f 0%, #20c997 100%);
+}
+
+.upload-col {
+  flex: 1 1 340px;
+  max-width: 400px;
+  min-width: 300px;
+  margin: 0 0.5em;
+  background: rgba(255,255,255,0.18);
+  border-radius: 16px;
+  padding: 1.2em 1em 1em 1em;
+  box-shadow: 0 2px 12px rgba(32,201,151,0.10);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #1f1f1f;
+}
+.dashboard-bg.dark .upload-col {
+  background: rgba(34,39,47,0.85);
+  color: #f1f1f1;
+}
+
+.upload-label {
+  font-weight: bold;
+  font-size: 1.08em;
+  margin-bottom: 0.5em;
+  color: #1976d2;
+  letter-spacing: 1.5px;
+}
+.dashboard-bg.dark .upload-label {
+  color: #20c997;
+}
+
+.local-upload-group,
+.cloud-upload-group {
+  width: 100%;
+}
+
+.dropzone {
+  border: 2px dashed #1976d2;
+  background: #fafdffcc;
+  padding: 18px 0;
+  border-radius: 10px;
+  text-align: center;
+  color: #1976d2;
+  cursor: pointer;
+  margin-bottom: 12px;
+  min-width: 220px;
+  transition: border 0.2s, background 0.2s;
+  font-weight: 500;
+}
+.dashboard-bg.dark .dropzone {
+  background: #23272f;
+  color: #20c997;
+  border-color: #20c997;
+}
+.upload-section.drag-active .dropzone,
+.dropzone.drag-active {
+  border: 2px dashed #20c997;
+  background: #e6fff7;
+  color: #20c997;
+}
+
+.browse-link {
+  color: #20c997;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.upload-btn,
+.download-btn,
+.delete-btn,
+.compress-btn {
+  background: linear-gradient(90deg, #1976d2 0%, #20c997 100%);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 8px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 8px;
+  margin-top: 6px;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(32,201,151,0.07);
+}
+.upload-btn:hover,
+.download-btn:hover,
+.delete-btn:hover,
+.compress-btn:hover {
+  background: linear-gradient(90deg, #20c997 0%, #1976d2 100%);
+  box-shadow: 0 6px 18px rgba(25,118,210,0.11);
+}
+.dashboard-bg.dark .upload-btn,
+.dashboard-bg.dark .download-btn,
+.dashboard-bg.dark .delete-btn,
+.dashboard-bg.dark .compress-btn {
+  background: linear-gradient(90deg, #20c997 0%, #1976d2 100%);
+  color: #fff;
+}
+
+.uploadthing-hint {
+  margin-top: 0.5em;
+  color: #1976d2;
+  font-size: 0.93em;
+  opacity: 0.85;
+}
+.dashboard-bg.dark .uploadthing-hint {
+  color: #20c997;
+}
+
+.file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.80);
+  border: 1.5px solid #e0fbfc;
+  padding: 18px 24px;
+  border-radius: 16px;
+  box-shadow: 0 2px 14px rgba(32,201,151,0.07);
+  backdrop-filter: blur(8px);
+  transition: box-shadow 0.2s;
+  color: #222;
+}
+.file-item:hover {
+  box-shadow: 0 6px 24px rgba(25,118,210,0.13);
+}
+.dashboard-bg.dark .file-item {
+  background: rgba(34,39,47,0.90);
+  color: #f1f1f1;
+}
+
+.file-info {
+  flex: 1;
+}
+
+.file-info h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #1976d2;
+  font-weight: 700;
+}
+.dashboard-bg.dark .file-info h3 {
+  color: #20c997;
+}
+
+.file-info p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+.dashboard-bg.dark .file-info p {
+  color: #f1f1f1;
+}
+
+.file-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.no-files {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #1976d2;
+  margin-top: 2em;
+}
+.dashboard-bg.dark .no-files {
+  color: #20c997;
+}
+
+.progress-bar {
+  background: #e0e0e0;
+  border-radius: 6px;
+  margin: 10px 0;
+  height: 20px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.progress-bar-inner {
+  background: linear-gradient(90deg, #1976d2 0%, #20c997 100%);
+  height: 100%;
+  color: #fff;
+  text-align: center;
+  line-height: 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: width 0.3s;
+}
+.download-progress .progress-bar-inner {
+  background: #8e44ad;
+}
+
+.encryption-badge {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 12px;
+  font-weight: bold;
+  margin: 4px 0;
+  font-size: 0.95em;
+  letter-spacing: 0.5px;
+  vertical-align: middle;
+  background: linear-gradient(90deg, #27ae60 0%, #20c997 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(32,201,151,0.08);
+}
+.aes-badge {
+  background: linear-gradient(90deg, #27ae60 0%, #20c997 100%);
+}
+.aesrsa-badge {
+  background: linear-gradient(90deg, #8e44ad 0%, #1976d2 100%);
+}
+.dashboard-bg.dark .encryption-badge {
+  background: linear-gradient(90deg, #20c997 0%, #27ae60 100%);
+  color: #fff;
+}
+
+.upload-date {
+  font-size: 0.92em;
+  color: #888;
+  margin-top: 2px;
+}
+.dashboard-bg.dark .upload-date {
+  color: #bbb;
+}
+
+body[data-theme="dark"] {
+  background: #181c21;
+  color: #f1f1f1;
+}
+/* Hide UploadThing file type hint below Choose File button */
+.uploadthing-allowed-content,
+.ut-allowed-content,
+.uploadthing-hint,
+.uploadthing-file-types,
+.uploadthing__allowed-content,
+.uploadthing__hint,
+.uploadthing__file-types {
+  display: none !important;
+}
