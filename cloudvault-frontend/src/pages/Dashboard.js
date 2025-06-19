@@ -16,7 +16,10 @@ function Dashboard() {
         ? "dark"
         : "light")
   );
-  const [sortOrder, setSortOrder] = useState("latest");
+  // Persist sortOrder in localStorage
+  const [sortOrder, setSortOrder] = useState(
+    localStorage.getItem("cloudvault-sortOrder") || "latest"
+  );
   const [uploadProgress, setUploadProgress] = useState(0);
   const [downloadProgress, setDownloadProgress] = useState({});
   const [dragActive, setDragActive] = useState(false);
@@ -206,6 +209,12 @@ function Dashboard() {
     </span>
   );
 
+  // Handle sort order change and persist to localStorage
+  const handleSortChange = (e) => {
+    setSortOrder(e.target.value);
+    localStorage.setItem("cloudvault-sortOrder", e.target.value);
+  };
+
   return (
     <div className={`dashboard-bg ${theme}`}>
       <div className="dashboard">
@@ -310,6 +319,21 @@ function Dashboard() {
         {/* File List Section */}
         <section className="section-card">
           <h2 className="section-title">Your Files</h2>
+          {/* Sorting dropdown */}
+          <div style={{ marginBottom: "1rem" }}>
+            <label htmlFor="sortOrder" style={{ marginRight: "0.5rem" }}>Sort by:</label>
+            <select
+              id="sortOrder"
+              value={sortOrder}
+              onChange={handleSortChange}
+              className="dropdown"
+            >
+              <option value="latest">Latest</option>
+              <option value="size">Size</option>
+              <option value="aes">AES Only</option>
+              <option value="aes+rsa">AES+RSA Only</option>
+            </select>
+          </div>
           <div className="file-list">
             {files.length > 0 ? (
               files.map((file) => (

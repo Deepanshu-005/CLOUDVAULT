@@ -56,6 +56,37 @@ body[data-theme="dark"] .section-title,
   background-clip: text;
 }
 
+/* === Sorting Dropdown Styles === */
+.dropdown {
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: 1.5px solid #1976d2;
+  font-size: 1rem;
+  color: #1976d2;
+  background: #fafdff;
+  margin-left: 0.5rem;
+  transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
+  box-shadow: 0 1px 4px rgba(32,201,151,0.07);
+}
+body[data-theme="dark"] .dropdown,
+.dashboard-bg.dark .dropdown {
+  background: #23272f;
+  color: #20c997;
+  border-color: #20c997;
+}
+.dropdown:focus {
+  border-color: #20c997;
+  box-shadow: 0 2px 8px rgba(32,201,151,0.13);
+}
+label[for="sortOrder"] {
+  font-weight: 500;
+  color: #1976d2;
+}
+body[data-theme="dark"] label[for="sortOrder"] {
+  color: #20c997;
+}
+
 /* === Increased Section Spacing === */
 .dashboard {
   padding: 20px;
